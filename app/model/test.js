@@ -1,18 +1,18 @@
 'use strict';
 
 module.exports = app => {
-    const { STRING, INTEGER, DATE } = app.Sequelize;
+    const { Model, DataTypes, Deferrable } = app.Sequelize;
 
-    const Home = app.model.define('home', {
-        id: { type: INTEGER, primaryKey: true, autoIncrement: true },
-        name: STRING(30),
-        age: INTEGER,
-        createdAt: DATE,
-        updatedAt: DATE,
+    const Test = app.model.define('test', {
+        id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+        name: DataTypes.STRING(30),
+        age: DataTypes.INTEGER,
+        createdAt: DataTypes.DATE,
+        updatedAt: DataTypes.DATE,
     }, {
         freezeTableName: true,
         underscored: true,
     });
 
-    return Home;
+    return Test;
 };
